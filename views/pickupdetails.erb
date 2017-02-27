@@ -1,0 +1,38 @@
+<html >
+<head>
+<title>PICKUP DETAILS</title>
+</head>
+<body>
+<script>
+  function validateForm() {
+    var x = document.forms["myform"] ["date"].value;
+       if(x == null || x == "") {
+      alert("please enter the valid date");
+      return false;
+    }
+    var y = document.forms["myform"] ["time"].value;
+    if(y == null || y == "") {
+      alert("time field must be filled out");
+      return false;
+    }
+    var z = document.forms["myform"] ["weight"].value;
+    if(z == null || z == "") {
+      alert("weight field must be filled out");
+      return false;
+    }
+  }
+</script>
+<center>
+
+  <form name="myform" action="submit" onsubmit="return validateForm()" method="post">
+  <fieldset>
+    <h2>PICKUP DETAILS</h2>
+  Date:<input type="date" name="date" min="2017-02-28"><br><br>
+  Time:<input type="time" name="time" ><br><br>
+  Weight:<input type="number" name="weight"><br><br>
+    <input type="submit" value="submit">
+  </fieldset>
+  </form>
+</center>
+</body>
+</html>

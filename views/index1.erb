@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>REGISTRATION PAGE</title>
+</head>
+<body>
+<script>
+  function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if ( x == null || x == "" ) {
+      alert("First name must be filled out");
+      return false;
+    }
+    var y = document.forms["myForm"]["lname"].value;
+    if ( y == null || y == "" ) {
+      alert("Last name must be filled out");
+      return false;
+    }
+    var z = document.forms["myForm"]["email"].value;
+    if (z == null || z == "" ) {
+      alert("Email must be filled out");
+      return false;
+    }
+  }
+</script>
+<center>
+
+  <form name="myForm" action="register" onsubmit="return validateForm()" method="post">
+    <fieldset>
+      <h2>REGISTRATION FORM</h2><br>
+    First name: <input type="text" name="fname" required placeholder="enter your firstname" pattern="[a-zA-Z]{3,}" title="please enter atleast 3 letters"><br><br>
+    Last name: <input type="text" name="lname" required placeholder="enter your lastname" pattern="[a-zA-Z]{3,}" title="please enter atleast 3 letters"><br><br>
+    Email: <input type="email" name="email" required placeholder="enter email address" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}"><br><br>
+    Address:<input type="text" name="address" ><br><br>
+    <input type="submit" value="register">
+    </fieldset>
+  </form>
+  </center>
+</body>
+  </html>

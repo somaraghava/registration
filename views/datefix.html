@@ -1,0 +1,110 @@
+<html>
+<script>
+function pickValidation() {
+
+var lre = /^\s*/;
+var datemsg = "";
+
+var inputDate = document.forms["myform"] ["date"].value;
+inputDate = inputDate.replace(lre, "");
+document.myform.myDate.value = inputDate;
+datemsg = isValidDate(inputDate);
+if (datemsg != "") {
+alert(datemsg);
+return;
+}
+else {
+
+getAge(new Date(inputDate));
+}
+
+}
+
+function getAge(pick) {
+
+var today = new Date();
+var nowyear = today.setFullYear(01,03,2017);
+var nowmonth = today.getMonth();
+var nowday = today.getDate();
+
+var birthyear = pick.getFullYear();
+var birthmonth = pick.getMonth();
+var birthday = pick.getDate();
+
+var age = nowyear - birthyear;
+var age_month = nowmonth - birthmonth;
+var age_day = nowday - birthday;
+
+if(age_month < 0 || (age_month == 0 && age_day <0)) {
+age = parseInt(age) -1;
+}
+//alert(age);
+
+function isValidDate(dateStr) {
+
+
+var msg = "";
+
+var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/;
+
+var matchArray = dateStr.match(datePat); // is the format ok?
+if (matchArray == null) {
+msg = "Date is not in a valid format.";
+return msg;
+}
+
+month = matchArray[1]; // parse date into variables
+day = matchArray[3];
+year = matchArray[4];
+
+if(month < 1 || day <1 || year < 2017) {
+msg = "your submitted date is invalid!!"
+    return msg;
+}
+}
+
+if (month < 1 || month > 12) { // check month range
+msg = "Month must be between 1 and 12.";
+return msg;
+}
+
+if (day < 1 || day > 31) {
+msg = "Day must be between 1 and 31.";
+return msg;
+}
+
+if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+msg = "Month "+month+" doesn't have 31 days!";
+return msg;
+}
+
+if (month == 2) { // check for february 29th
+var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+if (day>29 || (day==29 && !isleap)) {
+msg = "February " + year + " doesn't have " + day + " days!";
+return msg;
+}
+}
+
+if (day.charAt(0) == '0') day= day.charAt(1);
+
+//Incase you need the value in CCYYMMDD format in your server program
+//msg = (parseInt(year,10) * 10000) + (parseInt(month,10) * 100) + parseInt(day,10);
+
+return msg;  // date is valid
+}
+</script>
+<center>
+<form name="myform" action="submit" onsubmit="return pickValidation()">
+
+    Date: <input type="date" name="fname" required><br>
+    <br>
+    Time: <input type="time" name="lname" > <br>
+    <br>
+    Weight: <input type="float" name="weight"><br>
+    <br>
+    <input type="submit" value="submit">
+
+     </form>
+</center>
+</html>
