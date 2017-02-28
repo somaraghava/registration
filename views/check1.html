@@ -1,33 +1,97 @@
-<html >
-<script>
-    function validateForm() {
-       var x = document.forms["myform"] ["date"].value;
-        var present = new Date("01-03-2017");
+<!--suppress ALL -->
+<html>
+
+<head>
+
+    <title>Registration Form</title>
+
+    <script type="text/javascript">
+
+        <!--
+
+        function validate_form( )
+        {
+            if (document.myform.First_name.value == "")
+            {
+                alert ( "Please fill in the 'First Name' box." );
+                return false;
+            }
+            if (document.myform.Last_name.value == "")
+            {
+                alert ( "Enter Last name" );
+                return false;
+            }
+            alert("sucessfully Submitted");
+            return true;
 
 
-        if(x == null || x == "" || x < present) {
-        alert("please enter the valid date");
-          return false;
         }
-        var y = document.forms["myform"] ["time"].value;
-        if(y == null || y == "") {
-            alert("time field must be filled out");
-            return false;
+        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(document.myform.email.value))
+        {
+            alert("You have entered an invalid email address!")
+            return (false)
         }
-        var z = document.forms["myform"] ["weight"].value;
-        if(z == null || z == "") {
-            alert("weight field must be filled out");
-            return false;
+        function isNumberKey(evt)
+        {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode != 46 && charCode > 31
+                    && (charCode < 48 || charCode > 57))
+            {alert("Enter Number");
+                return false;
+            }
+            return true;
         }
-    }
-</script>
-<center>
-    <h2>PICKUP DETAILS</h2>
-    <form name="myform" action="submit" onsubmit="return validateForm()" method="post">
-        Date:<input type="date" name="valid_date" id="valid_date"><br><br>
-        Time:<input type="time" name="time" /><br><br>
-        Weight:<input type="number" name="weight"/><br><br>
-        <input type="submit" value="submit"/>
-    </form>
-</center>
+
+
+        //-->
+
+    </script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+<form  name="myform" action="register"  onsubmit="return validate_form()" method="post">
+    <table align="center"  width="100%" cellspacing="2" cellpadding="2" border="5">
+        <tr>
+            <td colspan="2" align="center"><b>REGISTRATION FORM</b></td>
+
+        </tr>
+        <tr>
+            <td align="left" valign="top" width="41%">First Name<span style="color:#ff0000">*</span></td>
+
+            <td width="57%"><input type="text" value="" name="First_name" size="24" required></td>
+        </tr>
+        <tr>
+            <td align="left" valign="top" width="41%">Last Name<span style="color:#ff0000">*</span></td>
+            <td width="57%">
+                <input type="text" value="" name="Last_name"  size="24" required></td>
+        </tr>
+        <tr>
+            <td align="left" valign="top" width="41%">Email<span style="color:#ff0000">*</span></td>
+            <td width="57%">
+                <input type="email" value="" name="email_id" size="24" required></td>
+        </tr>
+
+        <tr>
+        <tr>
+            <td align="left" valign="top" width="41%">Address</td>
+
+            <td width="57%"><textarea rows="4" maxlen="200" name="S2" cols="20"></textarea></td>
+        </tr>
+        <tr >
+        </tr>
+
+        <td colspan="2">
+            <p align="center">
+                <input type="submit" value="register" name="B4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p></td>
+        </tr>
+
+    </table>
+</form>
+</body>
+
 </html>
+
+
+
