@@ -6,7 +6,6 @@ class CreateSchedules < ActiveRecord::Migration[5.0]
       t.float :weight
     end
   end
-  drop_table :schedules
-end
+ end
 
 

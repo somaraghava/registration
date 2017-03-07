@@ -7,8 +7,6 @@ class CreatePages < ActiveRecord::Migration[5.0]
       t.text :address
   end
   end
-  drop_table :pages
-
 end
 
 
